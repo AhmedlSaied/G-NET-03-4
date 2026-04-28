@@ -3,7 +3,7 @@ using System.Text;
 using System.Diagnostics;
 //Question 01 : A junior developer wrote this code to build a comma-separated list of 5,000 product IDs:
 string Productlist = "";
-  var stopwatch = Stopwatch.StartNew();
+var stopwatch = Stopwatch.StartNew();
 for (int i = 1; i <= 1000; i++)
 {
     Productlist += "PROD-" + i + ",";
@@ -19,7 +19,7 @@ slowing down the application.
 //Tasks:
 //(b) Rewrite this code using StringBuilder to be more efficient.
 StringBuilder sb = new();
-var sw2 = Stopwatch.StartNew(); 
+var sw2 = Stopwatch.StartNew();
 for (int x = 1; x <= 1000; x++)
 {
     sb.Append("PROD-").Append(x).Append(",");
