@@ -120,30 +120,41 @@ using System.Text;
 //(a)A traditional switch statement
 //(b) A switch expression 
 
-string fileExtension = "pdf";
-string fileType;
+//string fileExtension = "pdf";
+//string fileType;
 
-switch (fileExtension.ToLower())
-{
-    case ".pdf":
-        fileType = "PDF Document";
-        break;
-    case ".docx":
-    case ".doc":
-        fileType = "Word Document";
-        break;
-    case ".xlsx":
-    case ".xls":
-        fileType = "Excel Spreadsheet";
-        break;
-    case ".jpg":
-    case ".png":
-    case ".gif":
-        fileType = "Image File";
-        break;
-    default:
-        fileType = "Unknown File Type";
-        break;
-}
+//switch (fileExtension.ToLower())
+//{
+//    case ".pdf":
+//        fileType = "PDF Document";
+//        break;
+//    case ".docx":
+//    case ".doc":
+//        fileType = "Word Document";
+//        break;
+//    case ".xlsx":
+//    case ".xls":
+//        fileType = "Excel Spreadsheet";
+//        break;
+//    case ".jpg":
+//    case ".png":
+//    case ".gif":
+//        fileType = "Image File";
+//        break;
+//    default:
+//        fileType = "Unknown File Type";
+//        break;
+//}
+#endregion
+#region Question 04
+//Rewrite the following using only ternary operators (no if statements):
+
+int temperature = 28;
+string weatherAdvice;
+weatherAdvice = (temperature < 0) ? "Freezing! Stay indoors."
+               : (temperature < 15) ? "Cold. Wear a jacket."
+               : (temperature < 25) ? "Pleasant weather."
+               : (temperature < 35) ? "Warm. Stay hydrated."
+               : "Hot! Avoid sun exposure.";
 #endregion
 
