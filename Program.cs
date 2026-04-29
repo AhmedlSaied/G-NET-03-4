@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Microsoft.VisualBasic.FileIO;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
@@ -48,70 +49,101 @@ using System.Text;
 //Student with valid ID
 //20% discount (applied after weekend surcharge)
 
-//Tasks:
+////Tasks:
 
-//(a)Implement using if-else if-else statements
-Console.WriteLine("=== Cinema Ticket Pricing System ===");
-//(b) The program should ask for: age, day of week (1-7, where 6 = Fri, 7=Sat),
-//and whether they have a student ID (yes/no)
+////(a)Implement using if-else if-else statements
+//Console.WriteLine("=== Cinema Ticket Pricing System ===");
+////(b) The program should ask for: age, day of week (1-7, where 6 = Fri, 7=Sat),
+////and whether they have a student ID (yes/no)
 
-Console.Write("Enter Age: ");
-int age = int.Parse(Console.ReadLine());
+//Console.Write("Enter Age: ");
+//int age = int.Parse(Console.ReadLine());
 
-Console.Write("Enter Day of Week (1-7, where 6=Fri, 7=Sat): ");
-int day = int.Parse(Console.ReadLine());
+//Console.Write("Enter Day of Week (1-7, where 6=Fri, 7=Sat): ");
+//int day = int.Parse(Console.ReadLine());
 
-Console.Write("Do you have a valid Student ID? (yes/no): ");
-string studentInput = Console.ReadLine().ToLower();
-bool isStudent = studentInput == "yes" || studentInput == "y";
+//Console.Write("Do you have a valid Student ID? (yes/no): ");
+//string studentInput = Console.ReadLine().ToLower();
+//bool isStudent = studentInput == "yes" || studentInput == "y";
 
-double finalPrice = 0;
-string breakdown = "";
+//double finalPrice = 0;
+//string breakdown = "";
 
-if (age < 5)
+//if (age < 5)
+//{
+//    finalPrice = 0;
+//    breakdown = "Age < 5: Free";
+//}
+//else if (age <= 12)
+//{
+//    finalPrice = 30;
+//    breakdown = "Base Price (Child 5-12): 30 LE";
+//}
+//else if (age <= 59)
+//{
+//    finalPrice = 50;
+//    breakdown = "Base Price (Adult 13-59): 50 LE";
+//}
+//else
+//{
+//    finalPrice = 25;
+//    breakdown = "Base Price (Senior 60+): 25 LE";
+//}
+
+//if (finalPrice > 0)
+//{
+//    if (day == 6 || day == 7)
+//    {
+//        finalPrice += 10;
+//        breakdown += "\nWeekend Surcharge: +10 LE";
+//    }
+
+//    if (isStudent)
+//    {
+//        double discount = finalPrice * 0.20;
+//        finalPrice -= discount;
+//        breakdown += $"\nStudent Discount (20%): -{discount} LE";
+//    }
+//}
+
+////(c) Display the final price with a breakdown of how it was calculated
+//Console.WriteLine("\n--- Receipt ---");
+//Console.WriteLine(breakdown);
+//Console.WriteLine($"Total Final Price: {finalPrice} LE");
+//Console.WriteLine("----------------");
+
+
+
+#endregion
+#region Question 03
+//Convert the following if-else chain to:
+//(a)A traditional switch statement
+//(b) A switch expression 
+
+string fileExtension = "pdf";
+string fileType;
+
+switch (fileExtension.ToLower())
 {
-    finalPrice = 0;
-    breakdown = "Age < 5: Free";
+    case ".pdf":
+        fileType = "PDF Document";
+        break;
+    case ".docx":
+    case ".doc":
+        fileType = "Word Document";
+        break;
+    case ".xlsx":
+    case ".xls":
+        fileType = "Excel Spreadsheet";
+        break;
+    case ".jpg":
+    case ".png":
+    case ".gif":
+        fileType = "Image File";
+        break;
+    default:
+        fileType = "Unknown File Type";
+        break;
 }
-else if (age <= 12)
-{
-    finalPrice = 30;
-    breakdown = "Base Price (Child 5-12): 30 LE";
-}
-else if (age <= 59)
-{
-    finalPrice = 50;
-    breakdown = "Base Price (Adult 13-59): 50 LE";
-}
-else
-{
-    finalPrice = 25;
-    breakdown = "Base Price (Senior 60+): 25 LE";
-}
-
-if (finalPrice > 0)
-{
-    if (day == 6 || day == 7)
-    {
-        finalPrice += 10;
-        breakdown += "\nWeekend Surcharge: +10 LE";
-    }
-
-    if (isStudent)
-    {
-        double discount = finalPrice * 0.20;
-        finalPrice -= discount;
-        breakdown += $"\nStudent Discount (20%): -{discount} LE";
-    }
-}
-
-//(c) Display the final price with a breakdown of how it was calculated
-Console.WriteLine("\n--- Receipt ---");
-Console.WriteLine(breakdown);
-Console.WriteLine($"Total Final Price: {finalPrice} LE");
-Console.WriteLine("----------------");
-
-
-
 #endregion
 
