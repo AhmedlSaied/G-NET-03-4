@@ -149,13 +149,13 @@ using System.Text;
 #region Question 04
 //Rewrite the following using only ternary operators (no if statements):
 
-int temperature = 28;
-string weatherAdvice;
-weatherAdvice = (temperature < 0) ? "Freezing! Stay indoors."
-               : (temperature < 15) ? "Cold. Wear a jacket."
-               : (temperature < 25) ? "Pleasant weather."
-               : (temperature < 35) ? "Warm. Stay hydrated."
-               : "Hot! Avoid sun exposure.";
+//int temperature = 28;
+//string weatherAdvice;
+//weatherAdvice = (temperature < 0) ? "Freezing! Stay indoors."
+//               : (temperature < 15) ? "Cold. Wear a jacket."
+//               : (temperature < 25) ? "Pleasant weather."
+//               : (temperature < 35) ? "Warm. Stay hydrated."
+//               : "Hot! Avoid sun exposure.";
 /*
 Then answer: Is the ternary version more readable?
 No. While the ternary version is more compact , it is generally less readable for complex logic.
@@ -163,5 +163,50 @@ When would you choose one over the other?
 Ternary Operator => For simple, binary assignments.
 if-else chain => For complex logic, range checks, or when you need to execute multiple statements.
 */
+#endregion
+#region Question 05
+
+int attempts = 0;
+bool isValid = false;
+
+do
+{
+    Console.Write("Enter a password: ");
+    string password = Console.ReadLine() ?? "";
+    attempts++;
+
+    bool hasUpper = false;
+    bool hasDigit = false;
+    bool hasSpace = false;
+    bool hasMinLength = password.Length >= 8;
+
+    foreach (char c in password)
+    {
+        if (char.IsUpper(c)) hasUpper = true;
+        if (char.IsDigit(c)) hasDigit = true;
+        if (char.IsWhiteSpace(c)) hasSpace = true;
+    }
+
+    isValid = hasMinLength && hasUpper && hasDigit && !hasSpace;
+
+    if (isValid)
+    {
+        Console.WriteLine("Password accepted!");
+        break;
+    }
+
+    Console.WriteLine("Invalid password. Violations:");
+    if (!hasMinLength) Console.WriteLine("- Minimum 8 characters");
+    if (!hasUpper) Console.WriteLine("- At least one uppercase letter");
+    if (!hasDigit) Console.WriteLine("- At least one digit");
+    if (hasSpace) Console.WriteLine("- No spaces allowed");
+
+    if (attempts >= 5)
+    {
+        Console.WriteLine("Account locked");
+        break;
+    }
+
+} while (!isValid);
 #endregion
 
