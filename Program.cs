@@ -156,5 +156,12 @@ weatherAdvice = (temperature < 0) ? "Freezing! Stay indoors."
                : (temperature < 25) ? "Pleasant weather."
                : (temperature < 35) ? "Warm. Stay hydrated."
                : "Hot! Avoid sun exposure.";
+/*
+Then answer: Is the ternary version more readable?
+No. While the ternary version is more compact , it is generally less readable for complex logic.
+When would you choose one over the other?
+Ternary Operator => For simple, binary assignments.
+if-else chain => For complex logic, range checks, or when you need to execute multiple statements.
+*/
 #endregion
 
